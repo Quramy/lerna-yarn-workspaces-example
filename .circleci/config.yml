@@ -17,6 +17,7 @@ jobs:
 #         - v1-dependencies-
 
       - run: yarn install
+      - run: ls -la node_modules/.bin
 
       - save_cache:
           paths:
