@@ -14,7 +14,7 @@ jobs:
             echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
             apt-get -y update
             apt-get -y install yarn
-          yarn --version
+            yarn --version
 #     - restore_cache:
 #         keys:
 #         - v1-dependencies-{{ checksum "yarn.lock" }}
