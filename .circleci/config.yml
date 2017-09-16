@@ -7,10 +7,15 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          - v1-dependencies-
+      - run: |
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        apt-get -y update
+        apt-get -y install yarn
+#     - restore_cache:
+#         keys:
+#         - v1-dependencies-{{ checksum "yarn.lock" }}
+#         - v1-dependencies-
 
       - run: yarn install
 
@@ -20,8 +25,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       - run: yarn add lerna -D
-      - run: yarn run lerna bootstrap
-
-      # run tests!
-      - run: yarn run lerna run test
+      - run: yarn run bootstrap
+      - run: yarn test
 
