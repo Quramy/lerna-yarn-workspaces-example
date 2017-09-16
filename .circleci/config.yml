@@ -7,11 +7,14 @@ jobs:
 
     steps:
       - checkout
-      - run: |
-        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-        apt-get -y update
-        apt-get -y install yarn
+      - run:
+        name: Install yarn
+        command: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          apt-get -y update
+          apt-get -y install yarn
+          yarn --version
 #     - restore_cache:
 #         keys:
 #         - v1-dependencies-{{ checksum "yarn.lock" }}
