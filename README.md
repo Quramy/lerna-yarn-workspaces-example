@@ -53,11 +53,7 @@ Append the `workspaces` key.
   "private": true,
   "workspaces": [
     "packages/*"
-  ],
-  dependencies: {
-  },
-  devDependencies: {
-  }
+  ]
 }
 ```
 
