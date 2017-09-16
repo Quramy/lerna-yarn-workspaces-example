@@ -80,7 +80,7 @@ In this example, the `x-cli` package dependes on another package, `x-core`. So t
 `lerna bootstrap` solve it. This command create sim-link of each packages into `node_modules`.
 
 ## Resolve Dependencies as TypeScript Modules
-As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime".  However considering wrieting sourcecodes, it's not.
+As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime".  However considering writing TypeScript sources, it's not.
 
 For example, the following code depends a module `x-core` located at other package.
 
@@ -94,8 +94,7 @@ export function cli() {
 }
 ```
 
-TypeScript compiler emits a "Cannot find module" error untile building `x-core` package and creating `x-core/index.d.ts`. 
-And it's silly to compile dependent packages(e.g. `x-core`) in the same repository after each editing them.
+If you compile this code, TypeScript compiler emits a "Cannot find module" error untile building `x-core` package and creating `x-core/index.d.ts`. And it's silly to compile dependent packages(e.g. `x-core`) in the same repository after each editing them.
 
 [TypeScript's path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) is the best solution.  Path mappings are declared such as:
 
