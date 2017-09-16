@@ -112,4 +112,4 @@ And it's silly to compile dependent packages(e.g. `x-core`) in the same reposito
 }
 ```
 
-The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src". In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
+The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`. In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
