@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^8.0.28",
+    "ava": "^0.22.0",
+    "lerna": "^2.2.0",
+    "typescript": "^2.5.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

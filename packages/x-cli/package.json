@@ -1,0 +1,20 @@
+{
+  "name": "@quramy/x-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "ava",
+    "postinstall": "tsc -p tsconfig.build.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "@quramy/x-core": "^1.0.0"
+  },
+  "ava": {
+    "files": ["lib/**/*.spec.js"]
+  }
+}
