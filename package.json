@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test"
+  },
   "devDependencies": {
     "@types/node": "^8.0.28",
     "ava": "^0.22.0",
