@@ -4,8 +4,8 @@
   "description": "",
   "main": "lib/main.js",
   "scripts": {
-    "test": "ava",
-    "postinstall": "tsc -p tsconfig.build.json"
+    "test": "npx ava",
+    "postinstall": "npx tsc -p tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
