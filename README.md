@@ -59,7 +59,7 @@ Append the `workspaces` key.
 
 * lerna.json
 
-Set `npmClient` `"yarn" and turn `useWorkspaces` on.
+Set `npmClient` `"yarn"` and turn `useWorkspaces` on.
 
 ```json
 {
@@ -76,11 +76,11 @@ Set `npmClient` `"yarn" and turn `useWorkspaces` on.
 Exec `yarn install`(or `lerna bootstrap`). After successful running, all dependency packages are downloaded under the repository root `node_modules` directory.
 
 ### Dependencies between packages
-In this example, the `x-cli` package dependes on another package, `x-core`. So to execute (or test) `x-cli`, `x-core` packages should be isntalled.
+In this example, the `x-cli` package depends on another package, `x-core`. So to execute (or test) `x-cli`, `x-core` packages should be installed.
 `yarn` solve it. This command create sim-link of each packages into the top-level `node_modules` dir.
 
 ## Resolve Dependencies as TypeScript Modules
-As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime".  However considering writing TypeScript sources, it's not.
+As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime". However considering writing TypeScript sources, it's not.
 
 For example, the following code depends a module `x-core` located at other package.
 
@@ -94,9 +94,9 @@ export function cli() {
 }
 ```
 
-If you compile this code, TypeScript compiler emits a "Cannot find module" error untile building `x-core` package and creating `x-core/index.d.ts`. And it's silly to compile dependent packages(e.g. `x-core`) in the same repository after each editing them.
+If you compile this code, TypeScript compiler emits a "Cannot find module" error until building `x-core` package and creating `x-core/index.d.ts`. And it's silly to compile dependent packages(e.g. `x-core`) in the same repository after each editing them.
 
-[TypeScript's path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) is the best solution.  Path mappings are declared such as:
+[TypeScript's path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) is the best solution. Path mappings are declared such as:
 
 ```js
 /* tsconfig.json */
@@ -111,4 +111,4 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 }
 ```
 
-The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`. In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
+The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`(it's relative from "packages/x-cli/src/main.ts"). In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
