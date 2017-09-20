@@ -2,12 +2,14 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "clean": "rimraf packages/**/lib"
   },
   "devDependencies": {
     "@types/node": "^8.0.28",
     "ava": "^0.22.0",
     "lerna": "^2.2.0",
+    "rimraf": "^2.6.2",
     "typescript": "^2.5.2"
   },
   "workspaces": [
