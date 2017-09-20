@@ -9,7 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^8.0.28"
+  },
   "devDependencies": {
     "typescript": "^2.5.2"
   }

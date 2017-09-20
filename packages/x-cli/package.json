@@ -4,17 +4,24 @@
   "description": "",
   "main": "lib/main.js",
   "scripts": {
-    "test": "npx ava",
-    "postinstall": "../../node_modules/.bin/tsc -p tsconfig.build.json"
+    "test": "ava",
+    "postinstall": "tsc -p tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.0",
-    "@quramy/x-core": "^1.0.0"
+    "@quramy/x-core": "^1.0.0",
+    "@types/node": "^8.0.28",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "typescript": "^2.5.2"
   },
   "ava": {
-    "files": ["lib/**/*.spec.js"]
+    "files": [
+      "lib/**/*.spec.js"
+    ]
   }
 }
