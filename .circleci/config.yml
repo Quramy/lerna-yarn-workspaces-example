@@ -14,8 +14,9 @@ jobs:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           - v1-dependencies-
 
+      - run: ls -la node_modules/@quramy
       - run: yarn install
-      - run: ls -la node_modules/.bin
+      - run: ls -la node_modules/@quramy
       - run: ls -la node_modules/.bin
 
       - save_cache:
