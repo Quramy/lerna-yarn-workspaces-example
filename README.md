@@ -73,11 +73,11 @@ Set `npmClient` `"yarn" and turn `useWorkspaces` on.
 }
 ```
 
-Exec `lerna bootstrap`. After successful running, all dependency packages are downloaded under the repository root `node_modules` directory.
+Exec `yarn install`(or `lerna bootstrap`). After successful running, all dependency packages are downloaded under the repository root `node_modules` directory.
 
 ### Dependencies between packages
 In this example, the `x-cli` package dependes on another package, `x-core`. So to execute (or test) `x-cli`, `x-core` packages should be isntalled.
-`lerna bootstrap` solve it. This command create sim-link of each packages into `node_modules`.
+`yarn` solve it. This command create sim-link of each packages into the top-level `node_modules` dir.
 
 ## Resolve Dependencies as TypeScript Modules
 As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime".  However considering writing TypeScript sources, it's not.
