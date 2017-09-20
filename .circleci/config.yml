@@ -24,7 +24,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      - run: yarn add lerna -D
-      - run: yarn run bootstrap
+#     - run: yarn run bootstrap
       - run: yarn test
 
