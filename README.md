@@ -1,4 +1,5 @@
 # How to build TypeScript mono-repo project
+[![CircleCI](https://circleci.com/gh/Quramy/lerna-yarn-workspaces-example.svg?style=svg)](https://circleci.com/gh/Quramy/lerna-yarn-workspaces-example)
 
 ## Tools
 
