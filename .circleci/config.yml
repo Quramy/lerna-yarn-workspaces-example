@@ -7,22 +7,21 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Install yarn
-          command: |
-            yarn --version
-#     - restore_cache:
-#         keys:
-#         - v1-dependencies-{{ checksum "yarn.lock" }}
-#         - v1-dependencies-
+      - run: yarn --version
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "yarn.lock" }}
+          - v1-dependencies-
 
       - run: yarn install
+      - run: ls -la node_modules/.bin
       - run: ls -la node_modules/.bin
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
         
 #     - run: yarn run bootstrap
       - run: yarn test
