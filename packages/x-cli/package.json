@@ -5,7 +5,7 @@
   "main": "lib/main.js",
   "scripts": {
     "test": "ava",
-    "postinstall": "tsc -p tsconfig.build.json"
+    "prepublish": "tsc -p tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
