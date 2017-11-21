@@ -16,7 +16,7 @@ jobs:
 
       - run: yarn install
       - run: yarn run lerna bootstrap
-      - run: yarn run lerna run prepublish
+      - run: yarn run lerna run prepare
       - run: ls -la node_modules/@quramy
       - run: ls -la node_modules/.bin
 
