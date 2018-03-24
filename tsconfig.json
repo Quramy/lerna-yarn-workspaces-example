@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
+      "@quramy/x-core/*": ["./x-core/src/*"],
       "@quramy/*": ["./*/src"]
     }
   }
