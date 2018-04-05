@@ -78,10 +78,12 @@ Exec `yarn install`(or `lerna bootstrap`). After successful running, all depende
 
 ### Dependencies between packages
 In this example, the `x-cli` package depends on another package, `x-core`. So to execute (or test) `x-cli`, `x-core` packages should be installed.
-`yarn` solve it. This command create sim-link of each packages into the top-level `node_modules` dir.
+But in development the `x-core` package is not published so you can't install it.
+
+`yarn` solves this problem. This command creates sim-links of each package into the top-level `node_modules` dir.
 
 ## Resolve Dependencies as TypeScript Modules
-As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime". However considering writing TypeScript sources, it's not.
+As mentioned above, Lerna resolves dependencies between packages. It's enough for "runtime". However considering TypeScript sources, in other words "static", it's not.
 
 For example, the following code depends a module `x-core` located at other package.
 
@@ -113,3 +115,15 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 ```
 
 The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`(it's relative from "packages/x-cli/src/main.ts"). In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
+
+## License
+
+The MIT License (MIT)
+
+Copyright 2017 Quramy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
