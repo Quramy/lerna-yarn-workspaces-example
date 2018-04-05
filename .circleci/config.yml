@@ -14,7 +14,7 @@ jobs:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           - v1-dependencies-
 
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn run lerna bootstrap
       - run: yarn run lerna run prepare
       - run: ls -la node_modules/@quramy
