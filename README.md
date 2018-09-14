@@ -105,13 +105,8 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 /* tsconfig.json */
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
-    "declaration": true,
-    "sourceMap": true,
-    "strict": true,
+    /* other options */
     "baseUrl": "./packages",
-    "composite": true,
     "paths": {
       "@quramy/*": ["./*/src"]
     }
@@ -140,7 +135,7 @@ TypeScript 3.0 supports projects' references. You can tell tsc that `x-cli` depe
 
 In the above json, the key `references` means the dependency.
 
-### Compile all packages.
+### Compile all packages
 
 Our repository has multiple `tsconfig.json` files. We can compile all packages with "-b" option:
 
