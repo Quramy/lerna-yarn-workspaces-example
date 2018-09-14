@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build": "tsc -b packages/x-core packages/x-cli",
     "test": "lerna run test",
-    "prepare": "lerna run prepare",
     "clean": "rimraf packages/**/lib"
   },
   "devDependencies": {
@@ -11,7 +11,7 @@
     "ava": "^0.22.0",
     "lerna": "^2.9.0",
     "rimraf": "^2.6.2",
-    "typescript": "~2.9.1"
+    "typescript": "~3.0.0"
   },
   "workspaces": [
     "packages/*"

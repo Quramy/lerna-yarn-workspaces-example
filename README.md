@@ -5,6 +5,9 @@
 
 * yarn: NPM client.
 * Lerna: Multiple packages management tool.
+* TypeScript: `^3.0.0` supports project references.
+
+*If you use ts(<= 2.9), see [ts-2.x branch](https://github.com/Quramy/lerna-yarn-workspaces-example/blob/ts-2.x/README.md)*.
 
 ## Directory Structure
 
@@ -24,7 +27,6 @@ Put each package under the `packages` directory.
 │   │   ├── package.json
 │   │   ├── src
 │   │   │   └── main.ts
-│   │   ├── tsconfig.build.json
 │   │   └── tsconfig.json
 │   └── x-core
 │       ├── lib
@@ -34,9 +36,7 @@ Put each package under the `packages` directory.
 │       ├── package.json
 │       ├── src
 │       │   └── index.ts
-│       ├── tsconfig.build.json
 │       └── tsconfig.json
-├── tsconfig.base.json
 ├── tsconfig.json
 └── yarn.lock
 ```
@@ -104,9 +104,14 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 ```js
 /* tsconfig.json */
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
     "baseUrl": "./packages",
+    "composite": true,
     "paths": {
       "@quramy/*": ["./*/src"]
     }
@@ -115,6 +120,33 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 ```
 
 The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`(it's relative from "packages/x-cli/src/main.ts"). In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
+
+### References between packages
+TypeScript 3.0 supports projects' references. You can tell tsc that `x-cli` depends on `x-core` project using this.
+
+```js
+/* packages/x-cli/tsconfig.json */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "references": [
+    { "path": "../x-core" }
+  ]
+}
+```
+
+In the above json, the key `references` means the dependency.
+
+### Compile all packages.
+
+Our repository has multiple `tsconfig.json` files. We can compile all packages with "-b" option:
+
+```sh
+$ tsc -b packages/x-core packages/x-cli
+```
 
 ## License
 

@@ -15,8 +15,8 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install --frozen-lockfile
-      - run: yarn run lerna bootstrap
-      - run: yarn run lerna run prepare
+      - run: yarn bootstrap
+      - run: yarn build
       - run: ls -la node_modules/@quramy
       - run: ls -la node_modules/.bin
 
