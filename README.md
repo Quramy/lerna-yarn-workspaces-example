@@ -117,7 +117,7 @@ If you compile this code, TypeScript compiler emits a "Cannot find module" error
 The above setting means `import { awesomeFn } from "@quramy/x-core"` is mapped to `import { awesomeFn } from "../../x-core/src"`(it's relative from "packages/x-cli/src/main.ts"). In other words, path mapping allows to treat developing packages' sources as published(compiled) modules.
 
 ### References between packages
-TypeScript 3.0 supports projects' references. You can tell tsc that `x-cli` depends on `x-core` project using this.
+TypeScript 3.0 supports [Project reference](https://www.typescriptlang.org/docs/handbook/project-references.html) feature. You can tell tsc that `x-cli` depends on `x-core` project using this.
 
 ```js
 /* packages/x-cli/tsconfig.json */
