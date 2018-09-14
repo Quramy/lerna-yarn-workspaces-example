@@ -1,7 +1,12 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
     "baseUrl": "./packages",
+    "composite": true,
     "paths": {
       "@quramy/*": ["./*/src"]
     }
