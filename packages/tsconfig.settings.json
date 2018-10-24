@@ -3,12 +3,10 @@
     "target": "es2015",
     "module": "commonjs",
     "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
     "strict": true,
-    "baseUrl": "./packages",
     "composite": true,
-    "paths": {
-      "@quramy/*": ["./*/src"]
-    }
+    "esModuleInterop": true
   }
 }
