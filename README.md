@@ -7,8 +7,8 @@
 * Lerna: Multiple packages management tool.
 * TypeScript: `^3.0.0` supports project references.
 
-*If you use ts(<= 2.9), see [ts-2.x branch](https://github.com/Quramy/lerna-yarn-workspaces-example/blob/ts-2.x/README.md)*.
-*If you want to use npm workspaces, see https://github.com/Quramy/npm-ts-workspaces-example*.
+- *If you use ts(<= 2.9), see [ts-2.x branch](https://github.com/Quramy/lerna-yarn-workspaces-example/blob/ts-2.x/README.md)*.
+- *If you want to use npm workspaces, see https://github.com/Quramy/npm-ts-workspaces-example*.
 
 ## Directory Structure
 
